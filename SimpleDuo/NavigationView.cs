@@ -12,7 +12,6 @@ public partial class NavigationView : UserControl
     
     private void button1_Click_1(object sender, EventArgs e)
     {
-        Console.WriteLine("SWITCH");
         _parentForm.SelectView(StartForm.ViewType.User);
     }
 

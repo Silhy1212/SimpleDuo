@@ -29,16 +29,10 @@ public partial class LanguageView : UserControl
             UserListView.Items.Add(item);
         }
     }
-
-    private void Login()
-    {
-        
-            _dbDriver = new DBDriver(_parentForm.Password);
-       
-    }
-
+    
     private void LoadLanguages()
     {
+        if(_dbDriver == null) _dbDriver = DBDriver._instance;
         List<Language> languages = _dbDriver.GetLanguages();
         if (_dbDriver.ThrownException is not null)
         {
@@ -54,8 +48,7 @@ public partial class LanguageView : UserControl
 
     private void FetchButton_Click(object sender, EventArgs e)
     {
-
-        Login();
+        
         LoadLanguages();
     }
 
@@ -63,7 +56,6 @@ public partial class LanguageView : UserControl
     {
         if (e.KeyChar == (int)Keys.Enter)
         {
-            Login();
             LoadLanguages();
         }
     }

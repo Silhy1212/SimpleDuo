@@ -7,6 +7,7 @@ public class DBDriver
     public string Username = "root";
     public string Password = "";
     public string Database = "student_matej.silhan_duolingo";
+    public static DBDriver _instance;
 
     public string connectionString =>
         $"Server={ServerDomain};Database={Database};User={Username};Password={Password};Port=3306;";
@@ -16,6 +17,8 @@ public class DBDriver
     public DBDriver(string password)
     {
         Password = password;
+        DBDriver._instance = this;
+        Console.WriteLine(DBDriver._instance == null);
     }
 
     public MySqlConnection GetConnection()
@@ -23,6 +26,25 @@ public class DBDriver
         return new MySqlConnection(connectionString);
     }
 
+    public bool TryConnection()
+    {
+        MySqlConnection connection = GetConnection();
+        try
+        {
+            connection.Open();
+            string query = "SELECT * FROM users";
+            MySqlCommand command = new MySqlCommand(query, connection);
+            // execute reader   
+            command.ExecuteReader();
+            // while reader.next
+            return true;
+        }
+        catch 
+        {
+            return false;
+        }
+        
+    }
     public List<User> GetUsers()
     {
         List<User> users = new List<User>();

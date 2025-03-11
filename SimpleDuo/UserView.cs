@@ -5,7 +5,7 @@
 public partial class UserView : UserControl
 {
     private readonly StartForm _parentForm;
-    private DBDriver? _dbDriver;
+    private DBDriver _dbDriver;
 
     public UserView(StartForm parentForm)
     {
@@ -26,13 +26,9 @@ public partial class UserView : UserControl
         }
     }
 
-    private void Login()
-    {
-        _dbDriver = new DBDriver(_parentForm.Password);
-    }
-
     private void LoadUsers()
     {
+        if(_dbDriver == null) _dbDriver = DBDriver._instance;
         List<User> users = _dbDriver.GetUsers();
         if (_dbDriver.ThrownException is not null)
         {
@@ -48,16 +44,13 @@ public partial class UserView : UserControl
 
     private void FetchButton_Click(object sender, EventArgs e)
     {
-        Login();
-
         LoadUsers();
     }
 
     private void PasswordTextBox_KeyPressed(object sender, KeyPressEventArgs e)
     {
         if (e.KeyChar == (int)Keys.Enter)
-        {
-            Login();
+        { 
             LoadUsers();
         }
     }

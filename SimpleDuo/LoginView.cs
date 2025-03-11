@@ -14,10 +14,22 @@ public partial class LoginView : UserControl
     private void Login()
     {
         
-        if (_dbDriver is null)
+        if (_dbDriver is null || !_dbDriver.TryConnection())
         {
             _dbDriver = new DBDriver(LoginTextBox.Text);
         }
+
+
+        if (_dbDriver.TryConnection())
+        {
+            _parentForm.SelectView(StartForm.ViewType.Navigation);
+        }
+        else{
+            Console.WriteLine();
+        }
+
+        
+         
         LoginTextBox.Text = "";
     }
     private void LoginTextBox_Enter(object sender, EventArgs e)
@@ -46,6 +58,6 @@ public partial class LoginView : UserControl
     private void LoginButton_Click(object sender, EventArgs e)
     {
         Login();
-        _parentForm.SelectView(StartForm.ViewType.Navigation);
+        
     }
 }
