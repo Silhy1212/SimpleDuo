@@ -7,16 +7,18 @@ public partial class StartForm : Form
     private LoginView loginView;
     private NavigationView navigationView;
     private UserView userView;
-
+    private LanguageView languageView;
+    public string Password;
     private UserControl _currentView;
-    
+
     public enum ViewType
     {
         Login,
         Navigation,
-        User
+        User,
+        Language
     }
-    
+
     public StartForm()
     {
         InitializeComponent();
@@ -39,6 +41,8 @@ public partial class StartForm : Form
             ViewType.Login => loginView,
             ViewType.Navigation => navigationView,
             ViewType.User => userView,
+            ViewType.Language => languageView,
+
         };
         RenderCurrentView();
     }

@@ -12,10 +12,6 @@ public partial class UserView : UserControl
         _parentForm = parentForm;
         InitializeComponent();
     }
-    
-
-    
-
     private void PopulateListView(List<User> users)
     {
         UserListView.Items.Clear();
@@ -32,12 +28,7 @@ public partial class UserView : UserControl
 
     private void Login()
     {
-        ErrorLabel.Text = "";
-        if (_dbDriver is null)
-        {
-            _dbDriver = new DBDriver(PasswordTextBox.Text);
-        }
-        PasswordTextBox.Text = "";
+        _dbDriver = new DBDriver(_parentForm.Password);
     }
 
     private void LoadUsers()
@@ -143,5 +134,10 @@ public partial class UserView : UserControl
     private void UserListView_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
     {
         Console.WriteLine($"{e.Item.Text}: {e.Item.SubItems[1].Text}: {e.Item.SubItems[2].Text}");
+    }
+
+    private void button2_Click(object sender, EventArgs e)
+    {
+        _parentForm.SelectView(StartForm.ViewType.Navigation); 
     }
 }

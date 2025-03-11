@@ -2,12 +2,12 @@
 
  namespace DatabaseViewForm;
 
-public partial class LanguageVieww : UserControl
+public partial class LanguageView : UserControl
 {
     private readonly StartForm _parentForm;
     private DBDriver? _dbDriver;
 
-    public LanguageVieww(StartForm parentForm)
+    public LanguageView(StartForm parentForm)
     {
         _parentForm = parentForm;
         InitializeComponent();
@@ -30,7 +30,12 @@ public partial class LanguageVieww : UserControl
         }
     }
 
-   
+    private void Login()
+    {
+        
+            _dbDriver = new DBDriver(_parentForm.Password);
+       
+    }
 
     private void LoadLanguages()
     {
@@ -49,8 +54,8 @@ public partial class LanguageVieww : UserControl
 
     private void FetchButton_Click(object sender, EventArgs e)
     {
-        
 
+        Login();
         LoadLanguages();
     }
 
@@ -58,7 +63,7 @@ public partial class LanguageVieww : UserControl
     {
         if (e.KeyChar == (int)Keys.Enter)
         {
-           
+            Login();
             LoadLanguages();
         }
     }
@@ -135,5 +140,10 @@ public partial class LanguageVieww : UserControl
     private void UserListView_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
     {
         Console.WriteLine($"{e.Item.Text}: {e.Item.SubItems[1].Text}: {e.Item.SubItems[2].Text}");
+    }
+
+    private void button2_Click(object sender, EventArgs e)
+    {
+        _parentForm.SelectView(StartForm.ViewType.Navigation);
     }
 }

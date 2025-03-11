@@ -28,7 +28,7 @@
       <Compile Update="NavigationView.cs">
         <SubType>Form</SubType>
       </Compile>
-      <Compile Update="LanguageVieww.cs">
+      <Compile Update="LanguageView.cs">
         <SubType>Form</SubType>
       </Compile>
     </ItemGroup>

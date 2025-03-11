@@ -36,13 +36,13 @@ partial class UserView
         usernameCol = new System.Windows.Forms.ColumnHeader();
         createdDateCol = new System.Windows.Forms.ColumnHeader();
         modifiedDateCol = new System.Windows.Forms.ColumnHeader();
-        PasswordTextBox = new System.Windows.Forms.TextBox();
         button1 = new System.Windows.Forms.Button();
         ErrorLabel = new System.Windows.Forms.Label();
         TextBoxNewUser = new System.Windows.Forms.TextBox();
         CreateUserButton = new System.Windows.Forms.Button();
         ButtonDelete = new System.Windows.Forms.Button();
         TextBoxDeleteUser = new System.Windows.Forms.TextBox();
+        button2 = new System.Windows.Forms.Button();
         SuspendLayout();
         // 
         // UserListView
@@ -79,13 +79,6 @@ partial class UserView
         modifiedDateCol.Name = "modifiedDateCol";
         modifiedDateCol.Text = "Modified";
         modifiedDateCol.Width = 218;
-        // 
-        // PasswordTextBox
-        // 
-        PasswordTextBox.Location = new System.Drawing.Point(258, 232);
-        PasswordTextBox.Name = "PasswordTextBox";
-        PasswordTextBox.Size = new System.Drawing.Size(198, 23);
-        PasswordTextBox.TabIndex = 8;
         // 
         // button1
         // 
@@ -142,22 +135,34 @@ partial class UserView
         TextBoxDeleteUser.TabIndex = 7;
         TextBoxDeleteUser.KeyDown += TextBoxDeleteUser_KeyDown;
         // 
+        // button2
+        // 
+        button2.Location = new System.Drawing.Point(121, 297);
+        button2.Name = "button2";
+        button2.Size = new System.Drawing.Size(88, 39);
+        button2.TabIndex = 9;
+        button2.Text = "Back";
+        button2.UseVisualStyleBackColor = true;
+        button2.Click += button2_Click;
+        // 
         // UserView
         // 
         AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+        Controls.Add(button2);
         Controls.Add(TextBoxDeleteUser);
         Controls.Add(ButtonDelete);
         Controls.Add(CreateUserButton);
         Controls.Add(TextBoxNewUser);
         Controls.Add(ErrorLabel);
         Controls.Add(button1);
-        Controls.Add(PasswordTextBox);
         Controls.Add(UserListView);
         Size = new System.Drawing.Size(1354, 935);
         ResumeLayout(false);
         PerformLayout();
     }
+
+    private System.Windows.Forms.Button button2;
 
     private System.Windows.Forms.TextBox TextBoxDeleteUser;
 
@@ -169,8 +174,6 @@ partial class UserView
     private System.Windows.Forms.Label ErrorLabel;
 
     private System.Windows.Forms.Button button1;
-
-    private System.Windows.Forms.TextBox PasswordTextBox;
 
     private System.Windows.Forms.ColumnHeader idCol;
     private System.Windows.Forms.ColumnHeader usernameCol;

@@ -20,18 +20,6 @@ public partial class LoginView : UserControl
         }
         LoginTextBox.Text = "";
     }
-    private void button1_Click_1(object sender, EventArgs e)
-    {
-        Console.WriteLine("SWITCH");
-        _parentForm.SelectView(StartForm.ViewType.User);
-    }
-
-    private void button2_Click(object sender, EventArgs e)
-    {
-        _parentForm.SelectView(StartForm.ViewType.Navigation);
-    }
-
-
     private void LoginTextBox_Enter(object sender, EventArgs e)
     {
         LoginTextBox.Text = "";
