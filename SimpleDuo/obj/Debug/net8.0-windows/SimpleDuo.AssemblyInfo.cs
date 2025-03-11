@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SimpleDuo")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cd266c10ded68c4dadb092867b138ffe40b76f69")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b9f0526ca5db2be8d13347c64605b5066ee2de77")]
 [assembly: System.Reflection.AssemblyProductAttribute("SimpleDuo")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SimpleDuo")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -24,6 +24,8 @@ public partial class StartForm : Form
         InitializeComponent();
         loginView = new LoginView(this);
         navigationView = new NavigationView(this);
+        languageView = new LanguageView(this);
+
         userView = new UserView(this);
         SelectView(ViewType.Login);
     }
